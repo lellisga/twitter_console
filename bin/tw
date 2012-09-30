@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+$LOAD_PATH << File.join(File.dirname(__FILE__), '..', 'lib')
+$LOAD_PATH << File.join(File.dirname(__FILE__), '..', 'config')
+
+require "application"
+require "twitter_console/command_line"
+
+command_line = CommandLine.new(STDIN, STDOUT, ARGV)
+command_line.test

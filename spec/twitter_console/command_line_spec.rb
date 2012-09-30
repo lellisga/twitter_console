@@ -29,7 +29,7 @@ OPTIONS:
 
     describe "OPTION: -t 'message'" do
       it "post the tweet when the option is valid" do
-        @command_line = CommandLine.new(@input, @output, "-t 'message'")
+        @command_line = CommandLine.new(@input, @output, ["-t", "message"])
         @output.should_receive(:puts).with(valid_tweet)
         @command_line.run
       end
@@ -37,7 +37,7 @@ OPTIONS:
 
     describe "OPTION: -u" do
       it "returns the usage when is a valid option" do
-        @command_line = CommandLine.new(@input, @output, "-u")
+        @command_line = CommandLine.new(@input, @output, ["-u"])
         @output.should_receive(:puts).with(usage)
         @command_line.run
       end
@@ -50,7 +50,7 @@ OPTIONS:
         end
 
         it "returns the usage when there's an input" do
-          @command_line = CommandLine.new(@input, @output, "invalid")
+          @command_line = CommandLine.new(@input, @output, ["invalid"])
           @output.should_receive(:puts).with(usage)
           @command_line.run
         end
